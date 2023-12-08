@@ -1,0 +1,13 @@
+{
+  "name": "com.amenone.vcontainerextensions",
+  "displayName": "VContainerExtensions",
+  "version": "0.1.0",
+  "unity": "2022.3",
+  "description": "A tool to help you use VContainer with Unity's new package manager.",
+  "author": {
+    "name": "amenonegames"
+  },
+  "dependencies": {
+    "jp.hadashikick.vcontainer": "1.13.2"
+  }
+}

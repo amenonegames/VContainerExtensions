@@ -1,5 +1,13 @@
 {
   "dependencies": {
+    "com.amenone.vcontainerextensions": {
+      "version": "file:com.amenone.vcontainerextensions",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "jp.hadashikick.vcontainer": "1.13.2"
+      }
+    },
     "com.unity.burst": {
       "version": "1.8.8",
       "depth": 1,
