@@ -7,20 +7,26 @@ namespace amenone.vcontainerextensions
 {
     public static class LifetimeScopeExtensions
     {
-        public static void RegisterComponentOrNullObjectFromArray<RegisterType, NullType>(
-            this IContainerBuilder builder, IRegistrable[] bindables)
+        public static RegistrationBuilder RegisterComponentOrNullObFromArray<RegisterType, NullType>(
+            this IContainerBuilder builder, IRegistrable[] bindables, bool AsImplementedInterfaces = false)
         {
             var component = bindables.OfType<RegisterType>().SingleOrDefault();
 
+            RegistrationBuilder registrationBuilder;
             if (component == null)
-                builder.Register<NullType>(Lifetime.Singleton)
+                registrationBuilder = builder.Register<NullType>(Lifetime.Singleton)
                     .As<RegisterType>();
             else
-                builder.RegisterComponent(component)
+                registrationBuilder = builder.RegisterComponent(component)
                     .As<RegisterType>();
+
+            if (AsImplementedInterfaces)
+                return registrationBuilder.AsImplementedInterfaces();
+            else
+                return registrationBuilder;
         }
 
-        public static void RegisterComponentFromBindables<RegisterType>(this IContainerBuilder builder,
+        public static RegistrationBuilder RegisterComponentFromArray<RegisterType>(this IContainerBuilder builder,
             IRegistrable[] bindables, bool AsImplementedInterfaces = false)
         {
             var component = bindables.OfType<RegisterType>().SingleOrDefault();
@@ -28,11 +34,11 @@ namespace amenone.vcontainerextensions
             if (component == null) throw new Exception($"Component of type {typeof(RegisterType)} is not found");
 
             if (AsImplementedInterfaces)
-                builder.RegisterComponent(component)
+                return builder.RegisterComponent(component)
                     //.As<RegisterType>()
                     .AsImplementedInterfaces();
             else
-                builder.RegisterComponent(component)
+                return builder.RegisterComponent(component)
                     .As<RegisterType>();
         }
     }

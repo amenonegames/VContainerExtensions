@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace amenone.vcontainerextensions
+namespace amenone.vcontainerextensions.identifier
 {
     public interface IListNameable<T> 
     {

@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using amenone.vcontainerextensions.Lookups.Interface;
 using VContainer;
 
-namespace amenone.vcontainerextensions
+namespace amenone.vcontainerextensions.Lookups
 {
-    public abstract class InterfaceHashSetBase<T> : IHierarchyHashSet<T>
+    public abstract class NameableHashSetBase<T> : IViewHashSet<T>
     {
         [Inject]
-        protected InterfaceHashSetBase(IRegistrableStorage list)
+        protected NameableHashSetBase(IRegistrable[] list)
         {
-            _hash = list.Registrables
+            _hash = list
                 .OfType<T>()
                 .ToHashSet();
         }

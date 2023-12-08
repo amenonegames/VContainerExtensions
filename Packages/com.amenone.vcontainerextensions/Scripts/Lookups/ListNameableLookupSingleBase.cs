@@ -2,22 +2,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using amenone.vcontainerextensions.identifier;
+using amenone.vcontainerextensions.Lookups.Interface;
 using UnityEngine;
 using VContainer;
 
-namespace amenone.vcontainerextensions
+namespace amenone.vcontainerextensions.Lookups
 {
     public abstract class
-        ListNameableInterfaceHierarchyLookupSingleBase<TKey, TKeyInList,  TValue > : IHierarchyLookupSingleInstanceFromList<TKeyInList, TValue >
-        where TValue : IListNameable<TKeyInList> where TKey :  IEnumerable<TKeyInList> , IEnumerable
+        ListNameableLookupSingleBase<TKeyInList,  TValue > : IViewLookupSingleInstanceFromList<TKeyInList, TValue >
+        where TValue : IListNameable<TKeyInList> 
     {
         protected Dictionary<IEnumerable<TKeyInList>, TValue> _dictionary { get; }
         private List<TKeyInList> _AllKeys { get; }
         
         [Inject]
-        protected ListNameableInterfaceHierarchyLookupSingleBase(IRegistrableStorage list)
+        protected ListNameableLookupSingleBase(IRegistrable[] list)
         {
-            _dictionary = list.Registrables
+            _dictionary = list
                 .OfType<TValue>()
                 .ToDictionary(x => x.Names);
             

@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using amenone.vcontainerextensions.identifier;
+using amenone.vcontainerextensions.Lookups.Interface;
 using VContainer;
 
-namespace amenone.vcontainerextensions
+namespace amenone.vcontainerextensions.Lookups
 {
     public abstract class
-        NameableInterfaceHierarchyLookupEnumerableBase<TKey, TValue> : IHierarchyLookupEnumerable<TKey, TValue>
+        NameableLookupEnumerableBase<TKey, TValue> : IViewLookupEnumerable<TKey, TValue>
         where TValue : INameable<TKey> where TKey : IComparable
     {
         [Inject]
-        protected NameableInterfaceHierarchyLookupEnumerableBase(IRegistrableStorage list)
+        protected NameableLookupEnumerableBase(IRegistrable[] list)
         {
-            _Lookup = (Lookup<TKey, TValue>)list.Registrables
+            _Lookup = (Lookup<TKey, TValue>)list
                 .OfType<TValue>()
                 .ToLookup(x => x.Name);
         }

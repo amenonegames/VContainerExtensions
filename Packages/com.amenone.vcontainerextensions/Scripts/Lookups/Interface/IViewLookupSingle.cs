@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace amenone.vcontainerextensions
+namespace amenone.vcontainerextensions.Lookups.Interface
 {
-    public interface IHierarchyLookupSingleInstance<TKey, TValue>
+    public interface IViewLookupSingle<TKey, TValue>
     {
         TValue Get(TKey name);
         IEnumerable<TValue> GetAll();
@@ -11,7 +11,7 @@ namespace amenone.vcontainerextensions
         (TValue match, IEnumerable<TValue> except) GetMatchAndExcept(TKey name);
     }
     
-    public interface IHierarchyLookupSingleInstanceFromList< TKeyInList , TValue >
+    public interface IViewLookupSingleInstanceFromList< TKeyInList , TValue >
     {
         IEnumerable<TValue> Get(TKeyInList name);
         IEnumerable<TValue> GetAll();

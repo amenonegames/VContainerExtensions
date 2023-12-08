@@ -1,4 +1,4 @@
-﻿namespace amenone.vcontainerextensions
+﻿namespace amenone.vcontainerextensions.identifier
 {
     public interface INameable<T>
     {
