@@ -9,7 +9,7 @@ namespace Packages.com.amenone.vcontainerextensions.AdditionalUtils
         {
             var registrationBuilder = new ComponentRegistrationBuilder(component);
             // Force inject execution
-            builder.RegisterBuildCallback(container => container.Resolve<TInterface>());
+            // builder.RegisterBuildCallback(container => container.Resolve<TInterface>());
             return builder.Register(registrationBuilder);
         }
     }
