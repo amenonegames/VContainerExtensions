@@ -1,5 +1,5 @@
 
-namespace amenone.vcontainerextensions
+namespace amenone.VcontainerViewExtensions
 {
     public interface IRegistrable
     {

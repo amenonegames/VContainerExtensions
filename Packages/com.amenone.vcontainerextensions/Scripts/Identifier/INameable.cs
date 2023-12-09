@@ -1,4 +1,4 @@
-﻿namespace amenone.vcontainerextensions.identifier
+﻿namespace amenone.VcontainerViewExtensions.Identifier
 {
     public interface INameable<T>
     {

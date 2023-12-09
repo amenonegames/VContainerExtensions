@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using amenone.vcontainerextensions.Lookups.Interface;
+using amenone.VcontainerViewExtensions.Lookups.Interface;
 using VContainer;
 
-namespace amenone.vcontainerextensions.Lookups
+namespace amenone.VcontainerViewExtensions.Lookups
 {
     public abstract class NameableHashSetBase<T> : IViewHashSet<T>
     {

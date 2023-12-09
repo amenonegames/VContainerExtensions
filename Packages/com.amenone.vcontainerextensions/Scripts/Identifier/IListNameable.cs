@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace amenone.vcontainerextensions.identifier
+namespace amenone.VcontainerViewExtensions.Identifier
 {
     public interface IListNameable<T> 
     {

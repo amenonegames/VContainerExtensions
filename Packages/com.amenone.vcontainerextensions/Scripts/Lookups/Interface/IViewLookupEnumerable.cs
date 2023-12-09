@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace amenone.vcontainerextensions.Lookups.Interface
+namespace amenone.VcontainerViewExtensions.Lookups.Interface
 {
     public interface IViewLookupEnumerable<TKey, TValue>
     {
