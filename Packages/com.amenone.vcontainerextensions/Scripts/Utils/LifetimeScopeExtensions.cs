@@ -8,14 +8,14 @@ namespace amenone.vcontainerextensions
 {
     public static class LifetimeScopeExtensions
     {
-        public static RegistrationBuilder RegisterComponentOrNullObFromArray<RegisterType, NullType>(
+        public static RegistrationBuilder RegisterComponentOrNullObFromArray<TToFind, NullT>(
             this IContainerBuilder builder, IRegistrable[] bindables, bool asSelf = true , bool asImplementedInterfaces = false)
         {
-            var component = bindables.OfType<RegisterType>().SingleOrDefault();
+            var component = bindables.OfType<TToFind>().SingleOrDefault();
 
             RegistrationBuilder registrationBuilder;
             if (component == null)
-                registrationBuilder = builder.Register<NullType>(Lifetime.Singleton);
+                registrationBuilder = builder.Register<NullT>(Lifetime.Singleton);
             else
                 registrationBuilder = builder.RegisterComponentWithoutSelf(component);
 
@@ -28,20 +28,23 @@ namespace amenone.vcontainerextensions
             return registrationBuilder;
         }
 
-        public static RegistrationBuilder RegisterComponentFromArray<RegisterType>(this IContainerBuilder builder,
-            IRegistrable[] bindables, bool AsImplementedInterfaces = false)
+        public static RegistrationBuilder RegisterComponentFromArray<TToFind>(this IContainerBuilder builder,
+            IRegistrable[] bindables, bool asSelf , bool asImplementedInterfaces = false)
         {
-            var component = bindables.OfType<RegisterType>().SingleOrDefault();
+            var component = bindables.OfType<TToFind>().SingleOrDefault();
 
-            if (component == null) throw new Exception($"Component of type {typeof(RegisterType)} is not found");
+            if (component == null) throw new Exception($"Component of type {typeof(TToFind)} is not found");
 
-            if (AsImplementedInterfaces)
-                return builder.RegisterComponent(component)
-                    //.As<RegisterType>()
-                    .AsImplementedInterfaces();
-            else
-                return builder.RegisterComponent(component)
-                    .As<RegisterType>();
+            RegistrationBuilder registrationBuilder;
+            registrationBuilder = builder.RegisterComponentWithoutSelf(component);
+            
+            if(asSelf)
+                registrationBuilder.AsSelf();
+            
+            if (asImplementedInterfaces)
+                registrationBuilder.AsImplementedInterfaces();
+
+            return registrationBuilder;
         }
 
     }
