@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Packages.com.amenone.vcontainerextensions.AdditionalUtils;
 using VContainer;
 using VContainer.Unity;
 
@@ -8,22 +9,23 @@ namespace amenone.vcontainerextensions
     public static class LifetimeScopeExtensions
     {
         public static RegistrationBuilder RegisterComponentOrNullObFromArray<RegisterType, NullType>(
-            this IContainerBuilder builder, IRegistrable[] bindables, bool AsImplementedInterfaces = false)
+            this IContainerBuilder builder, IRegistrable[] bindables, bool asSelf = true , bool asImplementedInterfaces = false)
         {
             var component = bindables.OfType<RegisterType>().SingleOrDefault();
 
             RegistrationBuilder registrationBuilder;
             if (component == null)
-                registrationBuilder = builder.Register<NullType>(Lifetime.Singleton)
-                    .As<RegisterType>();
+                registrationBuilder = builder.Register<NullType>(Lifetime.Singleton);
             else
-                registrationBuilder = builder.RegisterComponent(component)
-                    .As<RegisterType>();
+                registrationBuilder = builder.RegisterComponentWithoutSelf(component);
 
-            if (AsImplementedInterfaces)
-                return registrationBuilder.AsImplementedInterfaces();
-            else
-                return registrationBuilder;
+            if( asSelf )
+                registrationBuilder.AsSelf();
+            
+            if (asImplementedInterfaces)
+                registrationBuilder.AsImplementedInterfaces();
+
+            return registrationBuilder;
         }
 
         public static RegistrationBuilder RegisterComponentFromArray<RegisterType>(this IContainerBuilder builder,
@@ -41,5 +43,6 @@ namespace amenone.vcontainerextensions
                 return builder.RegisterComponent(component)
                     .As<RegisterType>();
         }
+
     }
 }
