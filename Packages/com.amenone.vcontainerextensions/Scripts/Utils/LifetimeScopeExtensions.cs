@@ -9,7 +9,7 @@ namespace amenone.VcontainerExtensions.Utils
     public static class LifetimeScopeExtensions
     {
         public static RegistrationBuilder RegisterComponentOrNullObFromArray<TToFind, NullT>(
-            this IContainerBuilder builder, IRegisterMarker[] bindables, bool asSelf = true , bool asImplementedInterfaces = false)
+            this IContainerBuilder builder, IRegisterMarker[] bindables, bool asSelf = true , bool asImplementedInterfaces = true)
         {
             var component = bindables.OfType<TToFind>().SingleOrDefault();
 
@@ -29,7 +29,7 @@ namespace amenone.VcontainerExtensions.Utils
         }
 
         public static RegistrationBuilder RegisterComponentFromArray<TToFind>(this IContainerBuilder builder,
-            IRegisterMarker[] bindables, bool asSelf , bool asImplementedInterfaces = false)
+            IRegisterMarker[] bindables, bool asSelf = true , bool asImplementedInterfaces = true)
         {
             var component = bindables.OfType<TToFind>().SingleOrDefault();
 
