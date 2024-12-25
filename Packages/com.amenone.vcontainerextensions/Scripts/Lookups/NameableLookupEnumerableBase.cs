@@ -12,7 +12,7 @@ namespace amenone.VcontainerViewExtensions.Lookups
         where TValue : INameable<TKey> where TKey : IComparable
     {
         [Inject]
-        protected NameableLookupEnumerableBase(IRegistrable[] list)
+        protected NameableLookupEnumerableBase(IRegisterMarker[] list)
         {
             _Lookup = (Lookup<TKey, TValue>)list
                 .OfType<TValue>()

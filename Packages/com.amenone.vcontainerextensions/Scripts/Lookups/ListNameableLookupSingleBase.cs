@@ -14,7 +14,7 @@ namespace amenone.VcontainerViewExtensions.Lookups
         private List<TKeyInList> _AllKeys { get; }
         
         [Inject]
-        protected ListNameableLookupSingleBase(IRegistrable[] list)
+        protected ListNameableLookupSingleBase(IRegisterMarker[] list)
         {
             _dictionary = list
                 .OfType<TValue>()

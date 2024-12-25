@@ -1,7 +1,7 @@
 
 namespace amenone.VcontainerViewExtensions
 {
-    public interface IRegistrable
+    public interface IRegisterMarker
     {
 
     }

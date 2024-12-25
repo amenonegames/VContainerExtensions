@@ -8,7 +8,7 @@ namespace amenone.VcontainerViewExtensions.Lookups
     public abstract class NameableHashSetBase<T> : IViewHashSet<T>
     {
         [Inject]
-        protected NameableHashSetBase(IRegistrable[] list)
+        protected NameableHashSetBase(IRegisterMarker[] list)
         {
             _hash = list
                 .OfType<T>()

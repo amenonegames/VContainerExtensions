@@ -14,7 +14,7 @@ namespace amenone.VcontainerViewExtensions.Lookups
         private List<TKeyInList> _AllKeys { get; }
         
         [Inject]
-        protected ListNameableLookupEnumerableBase(IRegistrable[] list)
+        protected ListNameableLookupEnumerableBase(IRegisterMarker[] list)
         {
             
             _Lookup = list
