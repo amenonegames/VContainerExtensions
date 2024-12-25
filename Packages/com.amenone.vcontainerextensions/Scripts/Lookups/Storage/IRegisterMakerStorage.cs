@@ -1,6 +1,6 @@
 ﻿namespace amenone.VcontainerViewExtensions.Lookups.Storage
 {
-    public interface IRegisterMakerStorage
+    public interface IRegisterMarkerStorage
     {
         IRegisterMarker[] RegisterMarkers { get; }
     }

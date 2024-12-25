@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using amenone.VcontainerViewExtensions.Identifier;
 using amenone.VcontainerViewExtensions.Lookups.Interface;
+using amenone.VcontainerViewExtensions.Lookups.Storage;
 using UnityEngine;
 using VContainer;
 
@@ -13,9 +14,9 @@ namespace amenone.VcontainerViewExtensions.Lookups
         where TValue : INameable<TKey> where TKey : IComparable
     {
         [Inject]
-        protected NameableLookupSingleBase(IRegisterMarker[] list)
+        protected NameableLookupSingleBase(IRegisterMarkerStorage list)
         {
-            _dictionary = list
+            _dictionary = list.RegisterMarkers
                 .OfType<TValue>()
                 .ToDictionary(x => x.Name);
         }

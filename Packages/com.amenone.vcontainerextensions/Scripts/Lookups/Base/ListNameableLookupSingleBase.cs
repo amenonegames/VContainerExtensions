@@ -2,6 +2,7 @@
 using System.Linq;
 using amenone.VcontainerViewExtensions.Identifier;
 using amenone.VcontainerViewExtensions.Lookups.Interface;
+using amenone.VcontainerViewExtensions.Lookups.Storage;
 using VContainer;
 
 namespace amenone.VcontainerViewExtensions.Lookups
@@ -14,9 +15,9 @@ namespace amenone.VcontainerViewExtensions.Lookups
         private List<TKeyInList> _AllKeys { get; }
         
         [Inject]
-        protected ListNameableLookupSingleBase(IRegisterMarker[] list)
+        protected ListNameableLookupSingleBase(IRegisterMarkerStorage list)
         {
-            _dictionary = list
+            _dictionary = list.RegisterMarkers
                 .OfType<TValue>()
                 .ToDictionary(x => x.Names);
             

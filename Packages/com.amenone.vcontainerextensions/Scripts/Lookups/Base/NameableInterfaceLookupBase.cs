@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using amenone.VcontainerViewExtensions.Lookups.Interface;
+using amenone.VcontainerViewExtensions.Lookups.Storage;
 using VContainer;
 
 namespace amenone.VcontainerViewExtensions.Lookups
@@ -8,9 +9,9 @@ namespace amenone.VcontainerViewExtensions.Lookups
     public abstract class NameableHashSetBase<T> : IViewHashSet<T>
     {
         [Inject]
-        protected NameableHashSetBase(IRegisterMarker[] list)
+        protected NameableHashSetBase(IRegisterMarkerStorage list)
         {
-            _hash = list
+            _hash = list.RegisterMarkers
                 .OfType<T>()
                 .ToHashSet();
         }

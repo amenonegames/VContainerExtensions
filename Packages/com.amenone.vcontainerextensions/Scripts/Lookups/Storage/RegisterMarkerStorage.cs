@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace amenone.VcontainerViewExtensions.Lookups.Storage
 {
-    public class RegisterMarkerStorage : IRegisterMakerStorage
+    public class RegisterMarkerStorage : IRegisterMarkerStorage
     {
         private IRegisterMarker[] _registerMarkers;
 
