@@ -1,9 +1,10 @@
 ﻿using System.Linq;
-using amenone.VcontainerViewExtensions.Lookups.Storage;
+using amenone.VcontainerExtensions.Identifier;
+using amenone.VcontainerExtensions.Lookups.Storage;
 using VContainer;
 using VContainer.Unity;
 
-namespace amenone.VcontainerViewExtensions.Utils
+namespace amenone.VcontainerExtensions.Utils
 {
     public class SampleLifeTimeScope : LifetimeScope
     {

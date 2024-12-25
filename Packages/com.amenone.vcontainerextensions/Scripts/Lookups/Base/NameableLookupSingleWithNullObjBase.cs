@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using amenone.VcontainerViewExtensions.Identifier;
-using amenone.VcontainerViewExtensions.Lookups.Interface;
-using amenone.VcontainerViewExtensions.Lookups.Storage;
+using amenone.VcontainerExtensions.Identifier;
+using amenone.VcontainerExtensions.Lookups.Interface;
+using amenone.VcontainerExtensions.Lookups.Storage;
 using UnityEngine;
 using VContainer;
 
-namespace amenone.VcontainerViewExtensions.Lookups
+namespace amenone.VcontainerExtensions.Lookups
 {
     public abstract class
         NameableLookupSingleBase<TKey, TValue , TValueNull> : IViewLookupSingle<TKey, TValue>

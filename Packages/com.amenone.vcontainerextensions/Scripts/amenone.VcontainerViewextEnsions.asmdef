@@ -1,6 +1,6 @@
 {
-    "name": "amenone.VcontainerViewextEnsions",
-    "rootNamespace": "amenone.VcontainerViewExtensions",
+    "name": "amenone.VcontainerExtensions",
+    "rootNamespace": "amenone.VcontainerExtensions",
     "references": [
         "GUID:b0214a6008ed146ff8f122a6a9c2f6cc"
     ],

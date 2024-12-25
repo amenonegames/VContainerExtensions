@@ -1,6 +1,6 @@
-﻿using amenone.VcontainerViewExtensions.Identifier;
+﻿using amenone.VcontainerExtensions.Identifier;
 
-namespace amenone.VcontainerViewExtensions.Utils
+namespace amenone.VcontainerExtensions.Utils
 {
     public interface IBar : INameable<string>
     {

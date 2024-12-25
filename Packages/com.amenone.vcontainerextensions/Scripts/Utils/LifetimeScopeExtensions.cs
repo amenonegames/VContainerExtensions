@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Linq;
+using amenone.VcontainerExtensions.Identifier;
 using amenone.VcontainerViewExtensions.AdditionalUtils;
 using VContainer;
 
-namespace amenone.VcontainerViewExtensions.Utils
+namespace amenone.VcontainerExtensions.Utils
 {
     public static class LifetimeScopeExtensions
     {
