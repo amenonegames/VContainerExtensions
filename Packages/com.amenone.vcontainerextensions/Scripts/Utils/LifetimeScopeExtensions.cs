@@ -9,9 +9,9 @@ namespace amenone.VcontainerExtensions.Utils
     public static class LifetimeScopeExtensions
     {
         public static RegistrationBuilder RegisterComponentOrNullObFromArray<TToFind, NullT>(
-            this IContainerBuilder builder, IRegisterMarker[] bindables, bool asSelf = true , bool asImplementedInterfaces = true)
+            this IContainerBuilder builder, IRegisterMarker[] registerable, bool asSelf = true , bool asImplementedInterfaces = true)
         {
-            var component = bindables.OfType<TToFind>().SingleOrDefault();
+            var component = registerable.OfType<TToFind>().SingleOrDefault();
 
             RegistrationBuilder registrationBuilder;
             if (component == null)
@@ -29,9 +29,9 @@ namespace amenone.VcontainerExtensions.Utils
         }
 
         public static RegistrationBuilder RegisterComponentFromArray<TToFind>(this IContainerBuilder builder,
-            IRegisterMarker[] bindables, bool asSelf = true , bool asImplementedInterfaces = true)
+            IRegisterMarker[] registerable, bool asSelf = true , bool asImplementedInterfaces = true)
         {
-            var component = bindables.OfType<TToFind>().SingleOrDefault();
+            var component = registerable.OfType<TToFind>().SingleOrDefault();
 
             if (component == null) throw new Exception($"Component of type {typeof(TToFind)} is not found");
 
