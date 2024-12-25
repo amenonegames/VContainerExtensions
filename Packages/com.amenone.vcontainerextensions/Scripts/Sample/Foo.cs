@@ -10,10 +10,4 @@ namespace amenone.VcontainerViewExtensions.Utils
         }
     }
     
-    public class FooAsNull : IFoo
-    {
-        public void Execute()
-        {
-        }
-    }
 }

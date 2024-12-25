@@ -10,19 +10,19 @@ namespace amenone.VcontainerViewExtensions.Utils
         protected override void Configure(IContainerBuilder builder)
         {
             // this sample is get component from autoInjectGameObjects. but you can use any other way to get component.
-            var registarableMarkers = 
+            var registerableMarkers = 
                 autoInjectGameObjects.Select(x => x.GetComponents<IRegisterMarker>())
                     .SelectMany(x => x)
                     .Distinct()
                     .ToArray();
             
             // register one component inherit IFoo interface from array, if not found register FooAsNull 
-            builder.RegisterComponentOrNullObFromArray<IFoo, FooAsNull>(registarableMarkers);
+            builder.RegisterComponentOrNullObFromArray<IFoo, IFooAsNullObj>(registerableMarkers);
 
             
             // register lookup to find some components inherit IBar interface 
             // first register IRegisterMarker[]
-            builder.RegisterInstance(registarableMarkers)
+            builder.RegisterInstance(registerableMarkers)
                 .As<IRegisterMarker[]>();
 
             // second register RegisterMarkerStorage
