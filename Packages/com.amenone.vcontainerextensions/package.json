@@ -1,7 +1,7 @@
 {
   "name": "com.amenone.vcontainerextensions",
   "displayName": "VContainerViewRegisterExtensions",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "unity": "2022.3",
   "description": "A tool to help you use VContainer with Unity's new package manager.",
   "author": {
@@ -9,5 +9,12 @@
   },
   "dependencies": {
     "jp.hadashikick.vcontainer": "1.13.2"
+  },
+  "samples": [
+  {
+    "displayName": "register sample",
+    "description": "Contains sample lookup and resgistration code",
+    "path": "Sample"
   }
+  ]
 }
