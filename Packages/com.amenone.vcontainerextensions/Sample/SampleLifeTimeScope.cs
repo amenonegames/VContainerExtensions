@@ -12,7 +12,7 @@ namespace amenone.VcontainerExtensions.Utils
         {
             // this sample is get component from autoInjectGameObjects. but you can use any other way to get component.
             var registerableMarkers = 
-                autoInjectGameObjects.Select(x => x.GetComponents<IRegisterMarker>())
+                autoInjectGameObjects.Select(x => x.GetComponentsInChildren<IRegisterMarker>(true))
                     .SelectMany(x => x)
                     .Distinct()
                     .ToArray();
